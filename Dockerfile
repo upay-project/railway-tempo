@@ -6,4 +6,11 @@ COPY ./tempo.yaml /etc/tempo.yaml
 
 EXPOSE 3200 14268 14250 4317 4318
 
-CMD ["-target=scalable-single-binary", "-config.file=/etc/tempo.yml"]
+# Add the run script
+COPY ./run.sh /app/run.sh
+
+USER root
+RUN chmod +x /app/run.sh
+
+ENTRYPOINT [ "/app/run.sh" ]
+CMD ["-target=scalable-single-binary"]
