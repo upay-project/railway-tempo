@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 # Inject config from environment variables
 if [ -n "$TEMPO_CONFIG" ]; then
